@@ -1,0 +1,401 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg5ommvp2npa7"]
+
+[ext_resource type="PackedScene" uid="uid://dxdy53lxwqx58" path="res://Scenes/Objects/player.tscn" id="1_aungh"]
+[ext_resource type="Texture2D" uid="uid://dd65dcadaplso" path="res://Sprites/Debug/Sprite-0001.png" id="3_rrsxy"]
+[ext_resource type="Texture2D" uid="uid://cyaqrjlwu8lwx" path="res://Sprites/Debug/Sprite-0003.png" id="3_xggl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es8o2"]
+size = Vector2(31.985, 31.2672)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srtw2"]
+size = Vector2(950, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cey1v"]
+size = Vector2(48, 1134)
+
+[node name="DebugScreen" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_aungh")]
+position = Vector2(575, 506)
+JumpPower = 1450
+FallingGravity = 4500
+RisingGravity = 2500
+PeekGravity = 1750
+PeekRange = null
+SoftSpeedCap = 1200
+HardSpeedCap = 6000
+NormalAcceleration = 420.0
+TuringAcceleration = 270.0
+AirAcceleration = 85.0
+NormalDeceleration = 290.0
+AirDeceleration = 10.0
+HighSpeedDeceleration = 40.0
+
+[node name="LevelParts" type="Node2D" parent="."]
+
+[node name="floor" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(617, 591)
+scale = Vector2(10.08, 1)
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="LevelParts/floor"]
+scale = Vector2(66.6562, 2.04688)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/floor"]
+position = Vector2(1.20997e-05, 0)
+scale = Vector2(66.6562, 2.04688)
+shape = SubResource("RectangleShape2D_es8o2")
+
+[node name="solid platform 1" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(800, 359)
+scale = Vector2(0.320002, 1)
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="LevelParts/solid platform 1"]
+scale = Vector2(66.6562, 2.04688)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/solid platform 1"]
+position = Vector2(1.20997e-05, 0)
+scale = Vector2(66.6562, 2.04688)
+shape = SubResource("RectangleShape2D_es8o2")
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(-16, 342)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 2" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(432, 148)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 2"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 2"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 3+" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(-1899, 264)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts/passable platform 3+"]
+position = Vector2(-1934, 99)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts/passable platform 3+/passable platform 1"]
+position = Vector2(827, -207)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1"]
+position = Vector2(-2115, 167)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(-463, -269)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(640, -263)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(-1719, -71)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(-1509, 452)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(12781, 183)
+scale = Vector2(5.8, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 1" type="StaticBody2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(553.793, -197)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3+/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1/passable platform 1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="solid platform 2" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(1325, -33)
+scale = Vector2(0.320002, 1)
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="LevelParts/solid platform 2"]
+scale = Vector2(66.6562, 2.04688)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/solid platform 2"]
+position = Vector2(1.20997e-05, 0)
+scale = Vector2(66.6562, 2.04688)
+shape = SubResource("RectangleShape2D_es8o2")
+
+[node name="solid platform 3" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(2012, -312)
+scale = Vector2(0.320002, 1)
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="LevelParts/solid platform 3"]
+scale = Vector2(66.6562, 2.04688)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/solid platform 3"]
+position = Vector2(1.20997e-05, 0)
+scale = Vector2(66.6562, 2.04688)
+shape = SubResource("RectangleShape2D_es8o2")
+
+[node name="solid platform 4" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(610, -312)
+scale = Vector2(0.320002, 1)
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="LevelParts/solid platform 4"]
+scale = Vector2(66.6562, 2.04688)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/solid platform 4"]
+position = Vector2(1.20997e-05, 0)
+scale = Vector2(66.6562, 2.04688)
+shape = SubResource("RectangleShape2D_es8o2")
+
+[node name="passable platform 3" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(1306, -329)
+scale = Vector2(0.8, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 3"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 3"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="solid platform 5" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(1313, -607)
+scale = Vector2(0.320002, 1)
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="LevelParts/solid platform 5"]
+scale = Vector2(66.6562, 2.04688)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/solid platform 5"]
+position = Vector2(1.20997e-05, 0)
+scale = Vector2(66.6562, 2.04688)
+shape = SubResource("RectangleShape2D_es8o2")
+
+[node name="passable platform 4" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(1917, -986)
+scale = Vector2(0.8, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 4"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 4"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 5" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(1351, -1276)
+scale = Vector2(0.4, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 5"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 5"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="passable platform 6" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(500, -2075)
+scale = Vector2(0.4, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite-0003" type="Sprite2D" parent="LevelParts/passable platform 6"]
+scale = Vector2(29.665, 1)
+texture = ExtResource("3_xggl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/passable platform 6"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_srtw2")
+one_way_collision = true
+
+[node name="solid platform 8" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(973, -1656)
+scale = Vector2(0.120002, 1)
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="LevelParts/solid platform 8"]
+scale = Vector2(66.6562, 2.04688)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/solid platform 8"]
+position = Vector2(1.20997e-05, 0)
+scale = Vector2(66.6562, 2.04688)
+shape = SubResource("RectangleShape2D_es8o2")
+
+[node name="Wall" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(293, -893)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelParts/Wall"]
+scale = Vector2(1.49828, 35.44)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/Wall"]
+shape = SubResource("RectangleShape2D_cey1v")
+
+[node name="Wall2" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(293, -2013)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelParts/Wall2"]
+scale = Vector2(1.49828, 35.44)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/Wall2"]
+shape = SubResource("RectangleShape2D_cey1v")
+
+[node name="Wall3" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(2329, -893)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelParts/Wall3"]
+scale = Vector2(1.49828, 35.44)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/Wall3"]
+shape = SubResource("RectangleShape2D_cey1v")
+
+[node name="Wall4" type="StaticBody2D" parent="LevelParts"]
+position = Vector2(2329, -2021)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelParts/Wall4"]
+scale = Vector2(1.49828, 35.44)
+texture = ExtResource("3_rrsxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelParts/Wall4"]
+shape = SubResource("RectangleShape2D_cey1v")

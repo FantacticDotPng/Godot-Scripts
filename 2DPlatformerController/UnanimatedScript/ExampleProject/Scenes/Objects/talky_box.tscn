@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2jnd1o070pkq"]
+
+[ext_resource type="Texture2D" uid="uid://dy3m5l3i84nvr" path="res://Sprites/Debug/Sprite-0004.png" id="1_8jpg2"]
+[ext_resource type="Script" path="res://Scripts/talky_box.gd" id="1_mlh5s"]
+[ext_resource type="Texture2D" uid="uid://dd65dcadaplso" path="res://Sprites/Debug/Sprite-0001.png" id="2_ub4x5"]
+[ext_resource type="FontFile" uid="uid://bim0manym4f0m" path="res://Fonts/arial.ttf" id="3_3e7w8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hyn51"]
+font = ExtResource("3_3e7w8")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb3he"]
+size = Vector2(116, 117)
+
+[node name="Talky box" type="Node2D"]
+script = ExtResource("1_mlh5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.62, 3.62)
+texture = ExtResource("1_8jpg2")
+
+[node name="Text box" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Text box"]
+position = Vector2(0, -103)
+scale = Vector2(16.24, 1.36)
+texture = ExtResource("2_ub4x5")
+
+[node name="Label" type="Label" parent="Text box"]
+offset_left = -260.0
+offset_top = -116.0
+offset_right = -55.0
+offset_bottom = -82.0
+scale = Vector2(0.998954, 1)
+text = "FUNNY TEXT HERE"
+label_settings = SubResource("LabelSettings_hyn51")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_wb3he")
+
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
