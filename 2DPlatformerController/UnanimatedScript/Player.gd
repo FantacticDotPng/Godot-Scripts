@@ -219,22 +219,6 @@ func _physics_process(delta):
 				else:
 					# Apply air Deceleration while within soft speed cap
 					CurHorizontalVelocity -= (AirAcceleration * sign(CurHorizontalVelocity)) * (abs(CurHorizontalVelocity) / SoftSpeedCap)
-			
-	
-	if (Input.is_action_just_pressed("Space")):
-		if (Input.is_action_pressed("up")):
-			HoldingJumpInput = false
-			CurVerticalVelocity -= 2000
-		else: if (Input.is_action_pressed("down")):
-			CurHorizontalVelocity = 0
-			CurVerticalVelocity = 0
-		else:
-			CurHorizontalVelocity += 10000 * direction
-	
-	
-	if(Input.is_action_just_pressed("Rest")):
-		global_transform.origin = Vector2.ZERO
-	
 	
 	var EnableCollision = true
 	
